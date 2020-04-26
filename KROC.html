@@ -1,42 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title></title>
         <style>
-        body {
-            background-image: url('images/my_site.jpg');
-            background-size: 100%; 
-        }
-        table {
-            margin: 0 auto;
-            text-align: center;
-            border-collapse: collapse;
-            border: 1px solid #d4d4d4;
-        }
-        tr:nth-child(even) {
-            background: #d4d4d4;
-        }
-        th, td {
-            padding: 10px 30px;
-        }
-        th {
-            border-bottom: 1px solid #d4d4d4;
+            body {
+                background-size: 100%; 
+            }
+            table {
+                margin: 0 auto;
+                text-align: center;
+                border-collapse: collapse;
+                border: 1px solid #d4d4d4;
+            }
+            #table {
+                padding: 0 20px;
+            }
+            #question {
+                width: 100%;
+            }
+            tr:nth-child(even) {
+                background: #d4d4d4;
+            }
+            th, td {
+                padding: 10px 30px;
+            }
+            th {
+                border-bottom: 1px solid #d4d4d4;
+            }
+            .hide {
+                display: none;
             }
         </style>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js">
-        </script>
-        <script type="text/javascript" >
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
             function new_qua() {
                 var text = $("#question").val();
-                $.post('now.py',
+                console.log(text);
+                $.post('new.php',
                 {
                     q: text,
+                }).done(function (data) {
+                    if (data == 'success')
+                        setTimeout(location.reload(), 2000);
+                    else 
+                        $('#error').removeClass('hide');
                 });
             }
         </script>
-        <script type="text/javascript">
+        <script>
             $.ajax({
             url: 'question.csv',
             dataType: 'text',
@@ -73,7 +86,7 @@
             } 
                 table += '</tbody>';
                 table += '</table>';
-                $('body').append(table);
+                $('#table').append(table);
             }
         </script>
     </head>
@@ -86,8 +99,7 @@
                 <td colspan="5" height="20px"></td>
             </tr>
             <tr>
-                <input type="text" id="RowPlaceholder2" style="visibility:hidden;" />
-                <td width="100px" style="font-size:14px">Задайте свой вопрос</td>
+                <td colspan="2" width="100px" style="font-size:14px">Задайте свой вопрос</td>
                 <td>
                     <input type="text" id="question" class="setpoint-textbox" />
                 </td>
@@ -102,15 +114,18 @@
             </tr>
             <tr>
                 <td colspan="5">
-                    <br />
-                    <br />
-                    <table width="600px" id="testingWithEdit">
-                        <tr>
-                            <td style="background-color:#fff; color:#00468C; border-bottom:1px solid #000; border-right:1px solid #000;">Вопросы</td>
-                        </tr>
-                    </table>
+                    <div id="error" class="hide" style="color: red;">
+                        Ошибка отправки! Попробуйте позже.
+                    </div>
                 </td>
             </tr>
         </table>
+        <br />
+        <br />
+        <br />
+        <div id="table"></div>
+        <br />
+        <br />
+        <br />
     </body>
 </html>
