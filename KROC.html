@@ -13,6 +13,23 @@
    }
    
    </style>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js">
         </script>
      <script type="text/javascript" >
@@ -34,8 +51,7 @@ $('body').append(button);
   #var data = open('question (1).csv');
   function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
-  var table = '<style>table {margin: 0 auto; text-align: center; border-collapse: collapse; border: 1px solid #d4d4d4; } tr:nth-child(even) { background: #d4d4d4; } th, td { padding: 10px 30px; } th { border-bottom: 1px solid #d4d4d4;}</style>';
-  table += '<table>';
+  var table = '<tsble>';
   for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
     if (singleRow === 0) {
       table += '<thead>';
