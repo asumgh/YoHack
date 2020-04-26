@@ -31,9 +31,27 @@ $('body').append(button);
     url: 'question (1).csv',
     dataType: 'text',
   }).done(successFunction);
-  var data = open('question (1).csv');
+  #var data = open('question (1).csv');
   function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
+table {
+  margin: 0 auto;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid #d4d4d4;
+}
+ 
+tr:nth-child(even) {
+  background: #d4d4d4;
+}
+ 
+th, td {
+  padding: 10px 30px;
+}
+ 
+th {
+  border-bottom: 1px solid #d4d4d4;
+} 
   var table = '<table>';
   for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
     if (singleRow === 0) {
@@ -64,27 +82,9 @@ $('body').append(button);
   } 
   table += '</tbody>';
   table += '</table>';
-table {
-  margin: 0 auto;
-  text-align: center;
-  border-collapse: collapse;
-  border: 1px solid #d4d4d4;
-}
- 
-tr:nth-child(even) {
-  background: #d4d4d4;
-}
- 
-th, td {
-  padding: 10px 30px;
-}
- 
-th {
-  border-bottom: 1px solid #d4d4d4;
-} 
   $('body').append(table);
 }
-successFunction(data);
+successFunction('question (1).csv');
 </script>
 </head>
 
