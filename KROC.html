@@ -27,11 +27,7 @@ $('body').append(button);
 }
 </script>
 <script type="text/javascript">
-    $.ajax({
-    url: 'question (1).csv',
-    dataType: 'text',
-  }).done(successFunction);
-  var data = open('question (1).csv');
+  var data = open('question_1.csv');
   function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
   var table = '<table>';
