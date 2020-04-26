@@ -11,10 +11,7 @@
      background-image: url(./images/intervyu-s-soboj.WmyvR.jpg);
     background-size: 100%; 
    }
-   
-   </style>
-<style>
-table {
+   table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -29,7 +26,7 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-</style>
+   </style>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js">
         </script>
      <script type="text/javascript" >
@@ -48,7 +45,6 @@ $('body').append(button);
     url: 'question (1).csv',
     dataType: 'text',
   }).done(successFunction);
-  #var data = open('question (1).csv');
   function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
   var table = '<tsble>';
