@@ -6,7 +6,7 @@
         <title></title>
         <style>
         body {
-            background-image: url(./images/my_site.jpg);
+            background-image: url('images/my_site.jpg');
             background-size: 100%; 
         }
         table {
@@ -29,13 +29,11 @@
         </script>
         <script type="text/javascript" >
             function new_qua() {
-                var text = document.getElementById("fName").value;
-                var button = '<tr>';
-                button += '<td>';
-                button += text;
-                button += '</td>';
-                $('body').append(button);
-                document.getElementById("fName").value = "";
+                var text = $("#question").val();
+                $.post('now.py',
+                {
+                    q: text,
+                });
             }
         </script>
         <script type="text/javascript">
@@ -91,7 +89,7 @@
                 <input type="text" id="RowPlaceholder2" style="visibility:hidden;" />
                 <td width="100px" style="font-size:14px">Задайте свой вопрос</td>
                 <td>
-                    <input type="text" id="fName" class="setpoint-textbox" />
+                    <input type="text" id="question" class="setpoint-textbox" />
                 </td>
             </tr>
             <tr>
