@@ -45,6 +45,7 @@ $('body').append(button);
     url: 'question (1).csv',
     dataType: 'text',
   }).done(successFunction);
+var datas = open('question (1).csv', 'r', encoding = 'utf-8');
   function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
   var table = '<tsble>';
@@ -79,7 +80,7 @@ $('body').append(button);
   table += '</table>';
   $('body').append(table);
 }
-successFunction('question (1).csv');
+successFunction(datas);
 </script>
 </head>
 
