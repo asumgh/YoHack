@@ -21,11 +21,10 @@
      <script type="text/javascript" >
 function new_qua() {
 var text = document.getElementById("fName").value;
-var button = '<a href=';
+var button = '<tr>';
+button += '<td>';
 button += text;
-button += '.html"><button type="button" class="btn btn-warning btn-lg">';
-button += text;
-button += '</button></a><br><br>';
+button += '</td>';
 $('body').append(button);
 }
 </script>
