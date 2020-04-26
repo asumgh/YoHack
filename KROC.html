@@ -34,25 +34,8 @@ $('body').append(button);
   #var data = open('question (1).csv');
   function successFunction(data) {
   var allRows = data.split(/\r?\n|\r/);
-table {
-  margin: 0 auto;
-  text-align: center;
-  border-collapse: collapse;
-  border: 1px solid #d4d4d4;
-}
- 
-tr:nth-child(even) {
-  background: #d4d4d4;
-}
- 
-th, td {
-  padding: 10px 30px;
-}
- 
-th {
-  border-bottom: 1px solid #d4d4d4;
-} 
-  var table = '<table>';
+  var table = '<style>table {margin: 0 auto; text-align: center; border-collapse: collapse; border: 1px solid #d4d4d4; } tr:nth-child(even) { background: #d4d4d4; } th, td { padding: 10px 30px; } th { border-bottom: 1px solid #d4d4d4;}</style>';
+  table += '<table>';
   for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
     if (singleRow === 0) {
       table += '<thead>';
